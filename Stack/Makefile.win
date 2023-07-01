@@ -1,0 +1,32 @@
+# Project: Stack
+# Makefile created by Dev-C++ 6.7.5
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = Main.o Stack.o
+LINKOBJ  = Main.o Stack.o
+LIBS     = -L"D:/Devcc/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/10.3.0/" -L"D:/Devcc/Dev-Cpp/MinGW64/lib/gcc/" -L"D:/Devcc/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/" -L"D:/Devcc/Dev-Cpp/MinGW64/lib/" -L"D:/Devcc/Dev-Cpp/MinGW64/lib" -L"D:/Devcc/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -g3 -static
+INCS     = -I"D:/Devcc/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/10.3.0/include" -I"D:/Devcc/Dev-Cpp/MinGW64/include" -I"D:/Devcc/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/10.3.0/include-fixed" -I"D:/Devcc/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"D:/Devcc/Dev-Cpp/MinGW64/include/c++/10.3.0" -I"D:/Devcc/Dev-Cpp/MinGW64/include/c++/10.3.0/x86_64-w64-mingw32" -I"D:/Devcc/Dev-Cpp/MinGW64/include/c++/10.3.0/backward" -I"D:/Devcc/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/10.3.0/include" -I"D:/Devcc/Dev-Cpp/MinGW64/include" -I"D:/Devcc/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/10.3.0/include-fixed" -I"D:/Devcc/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = Stack.exe
+CXXFLAGS = $(CXXINCS) -Wall -Wextra -g3
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=windows-1252
+CFLAGS   = $(INCS) -Wall -Wextra -g3
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "$(BIN)" $(LIBS)
+
+Main.o: Main.cpp Stack.h
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS) 
+
+Stack.o: Stack.cpp Stack.h
+	$(CPP) -c Stack.cpp -o Stack.o $(CXXFLAGS) 
