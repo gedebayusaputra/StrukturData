@@ -1,0 +1,2 @@
+# StrukturData
+Pengumpulan Tugas C++
